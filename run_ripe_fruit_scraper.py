@@ -1,4 +1,6 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 import os
 import argparse
 import json
@@ -42,11 +44,13 @@ def update_json_with_total_unit_prices(json_data_file):
 
 
 def arg_parser():
+    """ Processes command line argument(s)
+    """
     parser = argparse.ArgumentParser(
         description='Program scrapes data about fruits from a grocery site.')
     parser.add_argument(
         'json_file', action="store", type=str,
-        help='json scraped data output file.')
+        help='location of json formatted scraped data output file.')
     return vars(parser.parse_args())
 
 

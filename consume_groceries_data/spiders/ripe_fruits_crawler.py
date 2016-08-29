@@ -6,6 +6,12 @@ from consume_groceries_data.items import ConsumeGroceriesDataItem
 
 
 class RipeFruits(CrawlSpider):
+    """ The spider class defines attributes that tell it where to start scraping
+    and how deep to follow links within the given list of allowed domains.
+
+    It also defines a parse method telling it how to handle scraped data.
+    """
+
     name = 'ripefruits'
     allowed_domains = ['hiring-tests.s3-website-eu-west-1.amazonaws.com']
     start_urls = [
@@ -27,8 +33,8 @@ class RipeFruits(CrawlSpider):
     ]
 
     def parse_item(self, response):
-        """ Parses the response data,
-        extracting the scraped data as scraped items.
+        """ Parses the response data, extracting and loading it into an
+        instance of the items container.
         """
         # only extracts content from the links followed on the starting url,
         # but not the actual starting page
